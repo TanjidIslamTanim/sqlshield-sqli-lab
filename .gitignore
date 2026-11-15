@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+# Local lab data and artifacts
+lab/data/*
+!lab/data/.gitkeep
+*.db
+*.sqlite
+*.sqlite3
+*.log
+.env
+.env.*
+!.env.example
+# Local editor and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+# Build / test
+.coverage
+htmlcov/
+dist/
+build/
+
+# Do not publish private coursework or local artifacts
+*.pem
+*.key
+*.p12
+*.pfx
+*.env.local
+*.bak
+*.zip
+*.docx
+*.pdf
+*.pptx

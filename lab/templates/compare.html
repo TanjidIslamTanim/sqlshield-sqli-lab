@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071522">
+  <title>SQLShield — Login Comparison</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="{{ url_for('static', filename='js/compare.js') }}" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Lab navigation">
+      <a class="brand" href="/"><span class="brand-icon">⬡</span><span>SQL<span class="accent">Shield</span><small>LOCAL SECURITY LAB</small></span></a>
+      <p class="side-label">WORKSPACE</p>
+      <a class="nav-item" href="/">◈ &nbsp; Overview</a>
+      <a class="nav-item active" href="/lab" aria-current="page">◧ &nbsp; Compare Login Modes <span>LIVE</span></a>
+      <a class="nav-item" href="/dashboard">▤ &nbsp; Test Results <span>NEW</span></a>
+      <div class="sidebar-foot"><span class="status-dot"></span> Local-only demonstration<br><small>Phase 3 / SQLi comparison</small></div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><span>SECURITY WORKSPACE <span class="sep">/</span> COMPARISON LAB</span><span class="chip">● LOCAL ONLY</span></header>
+      <div class="content compare-content">
+        <div class="eyebrow">LIVE LAB · TWO QUERIES · ONE INPUT</div>
+        <h1>Same input.<br><em>Different outcome.</em></h1>
+        <p class="intro">Test how a vulnerable SQL query behaves compared with a protected, parameterized query. Both use the same fictional SQLite accounts.</p>
+        <div class="lab-warning"><strong>⚠ Deliberately vulnerable demonstration.</strong> Only test this project on localhost or an isolated VM. Never enter real credentials or publish the Flask backend.</div>
+
+        <section class="panel input-panel" aria-labelledby="input-heading">
+          <div class="panel-label">01 / SELECT A TEST CASE</div>
+          <h2 id="input-heading">Lab inputs</h2>
+          <div class="preset-row" role="group" aria-label="Test examples">
+            <button type="button" class="preset-btn" data-preset="valid">✓ Valid credentials</button>
+            <button type="button" class="preset-btn" data-preset="invalid">× Wrong password</button>
+            <button type="button" class="preset-btn" data-preset="injection">⌁ SQL injection example</button>
+          </div>
+          <form id="compare-form" novalidate>
+            <div class="form-grid">
+              <label class="field"><span>Username</span><input id="username" name="username" type="text" maxlength="160" required autocomplete="off" spellcheck="false" value="alice"></label>
+              <label class="field"><span>Demo secret (not a real password)</span><input id="demo-secret" name="demo_secret" type="text" maxlength="160" required autocomplete="off" spellcheck="false" value="DemoPass123!"></label>
+            </div>
+            <div class="form-foot"><span>Fictional account: <code>alice</code> / <code>DemoPass123!</code></span><button class="primary-cta" id="run-button" type="submit">Run comparison <span aria-hidden="true">→</span></button></div>
+          </form>
+        </section>
+
+        <section aria-labelledby="result-heading">
+          <div class="section-title"><div><div class="panel-label">02 / COMPARE RESULTS</div><h2 id="result-heading">Authentication outcome</h2></div><span class="tiny-tag">NO REAL LOGIN SESSION</span></div>
+          <div class="result-grid">
+            <article class="result-card vulnerable-card" id="vulnerable-card">
+              <div class="result-header"><span class="mode-label">UNSAFE QUERY</span><span class="result-pill" id="vulnerable-status">WAITING</span></div>
+              <h3>Vulnerable mode</h3>
+              <p>Untrusted input is inserted into an SQL string.</p>
+              <div class="result-box" aria-live="polite"><strong id="vulnerable-title">Not tested yet</strong><span id="vulnerable-detail">Run the comparison to see the result.</span></div>
+              <pre><code>... WHERE username = '{input}'
+AND demo_secret = '{input}'</code></pre>
+            </article>
+            <article class="result-card protected-card" id="protected-card">
+              <div class="result-header"><span class="mode-label">PARAMETERIZED QUERY</span><span class="result-pill" id="protected-status">WAITING</span></div>
+              <h3>Protected mode</h3>
+              <p>Placeholders keep SQL code separate from submitted data.</p>
+              <div class="result-box" aria-live="polite"><strong id="protected-title">Not tested yet</strong><span id="protected-detail">Run the comparison to see the result.</span></div>
+              <pre><code>... WHERE username = ?
+AND demo_secret = ?</code></pre>
+            </article>
+          </div>
+          <div class="finding-panel" id="finding-panel" role="status" aria-live="polite"><span class="finding-icon">◈</span><div><strong id="finding-title">Awaiting comparison</strong><p id="finding-detail">Choose an example and run both modes to see what changes.</p></div></div>
+        </section>
+        <div class="dashboard-cta"><div><strong>Every comparison is now recorded.</strong><p>Review sanitized test history, charts, and exportable evidence.</p></div><a class="secondary-cta" href="/dashboard">View security dashboard →</a></div>
+        <footer>SQLShield · Synthetic data · Query parameterization addresses SQL injection, not every authentication risk</footer>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

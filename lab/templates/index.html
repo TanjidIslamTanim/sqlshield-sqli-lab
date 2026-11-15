@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071522">
+  <title>SQLShield — Local Security Lab</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Lab navigation">
+      <a class="brand" href="/"><span class="brand-icon">⬡</span><span>SQL<span class="accent">Shield</span><small>LOCAL SECURITY LAB</small></span></a>
+      <p class="side-label">WORKSPACE</p>
+      <a class="nav-item active" href="/" aria-current="page">◈ &nbsp; Overview</a>
+      <a class="nav-item" href="/lab">◧ &nbsp; Compare Login Modes <span>LIVE</span></a>
+      <a class="nav-item" href="/dashboard">▤ &nbsp; Test Results <span>NEW</span></a>
+      <div class="sidebar-foot"><span class="status-dot"></span> Local-only demonstration<br><small>Phase 3 / Evidence dashboard</small></div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><span>SECURITY WORKSPACE <span class="sep">/</span> OVERVIEW</span><span class="chip">● LOCAL ONLY</span></header>
+      <div class="content">
+        <div class="eyebrow">SYSTEM SECURITY · PHASE 3</div>
+        <h1>Understand the attack.<br><em>Prove the defence.</em></h1>
+        <p class="intro">See how unsafe SQL string construction can change authentication results, and why parameterized queries preserve the intended query structure.</p>
+        <div class="notice"><strong>The comparison lab and evidence dashboard are ready.</strong> Use synthetic credentials and run the same inputs against vulnerable and protected queries. No real accounts or sessions are created.</div>
+        <a class="primary-cta" href="/lab">Launch comparison lab <span aria-hidden="true">↗</span></a>
+        <a class="secondary-cta overview-dashboard-link" href="/dashboard">Open evidence dashboard →</a>
+        <section class="stats" aria-label="Project modules">
+          <article class="metric"><span>01 / ATTACK</span><h2>Vulnerable</h2><p>Unsafe SQL string construction in a controlled local lab.</p><b class="warning">DEMO ACTIVE</b></article>
+          <article class="metric"><span>02 / DEFENCE</span><h2>Protected</h2><p>SQLite parameter binding treats inputs as data.</p><b class="safe">DEMO ACTIVE</b></article>
+          <article class="metric"><span>03 / EVIDENCE</span><h2>Comparison</h2><p>Persistent sanitized event history, charts, and CSV/JSON export.</p><b class="safe">PHASE 3 ACTIVE</b></article>
+        </section>
+        <section class="bottom-grid">
+          <article class="panel"><div class="panel-label">PROJECT PIPELINE</div><h3>Four implementation phases</h3><ol><li class="complete">Foundation &amp; architecture <strong>COMPLETE</strong></li><li class="complete">Login flows &amp; SQLite database <strong>PHASE 2</strong></li><li class="complete">Testing, logs &amp; dashboard <strong>PHASE 3</strong></li><li>Report, presentation &amp; portfolio <span>PLANNED</span></li></ol></article>
+          <article class="panel"><div class="panel-label">SECURITY BOUNDARY</div><h3>Designed for safe learning</h3><p>This lab contains an intentionally unsafe query and fictional credentials. Run it only on your computer or an isolated VM. The public portfolio is static and separate.</p><div class="boundary">127.0.0.1:5000 <span>● PRIVATE</span></div></article>
+        </section>
+        <footer>SQLShield · Educational comparison lab · No real credentials</footer>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
