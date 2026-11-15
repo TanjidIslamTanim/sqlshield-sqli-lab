@@ -6,7 +6,9 @@
 
 **Python · Flask · SQLite · Secure Coding · Web Security**
 
-*A controlled, local-only project exploring why parameterized SQL queries matter.*
+*A controlled, local-only security lab demonstrating SQL injection, secure query construction and evidence-based testing.*
+
+[![Python tests](https://github.com/TanjidIslamTanim/sqlshield-sqli-lab/actions/workflows/python-tests.yml/badge.svg)](https://github.com/TanjidIslamTanim/sqlshield-sqli-lab/actions/workflows/python-tests.yml) ![Python](https://img.shields.io/badge/Python-3.13-3776AB?logo=python&logoColor=white) ![Flask](https://img.shields.io/badge/Flask-3.x-162b38) ![Status](https://img.shields.io/badge/Backend-local--only-2e9e80)
 
 [Project case study](portfolio/index.html) · [Architecture](docs/architecture.md) · [Threat model](docs/threat-model.md) · [Security boundaries](SECURITY.md)
 
@@ -16,7 +18,7 @@
 
 ## Overview
 
-SQLShield was developed for **System Security coursework at UOW Malaysia**. It compares two ways of handling the same database input: an intentionally unsafe SQL query and a protected query that uses SQLite parameter binding.
+SQLShield was developed for **System Security coursework at University of Wollongong Malaysia**. It compares two ways of handling the same database input: an intentionally unsafe SQL query and a protected query that uses SQLite parameter binding.
 
 The lab uses fictional accounts and a local Flask interface. A separate dashboard records sanitized outcomes, charts and test history. It is designed for **learning and demonstration**, not production authentication.
 
@@ -28,6 +30,31 @@ The lab uses fictional accounts and a local Flask interface. A separate dashboar
 *Original capture from the running SQLShield local lab, not a mockup.*
 
 ![SQLShield local comparison: the unsafe query matched a fictional account while the parameterized query rejected the same input](portfolio/assets/evidence/lab.jpg)
+
+## Feature gallery
+
+Actual screenshots captured from the local application. Click any image to inspect it.
+
+<table>
+  <tr>
+    <td width="50%"><a href="portfolio/assets/evidence/lab.jpg"><img src="portfolio/assets/evidence/lab.jpg" alt="Local SQL injection comparison page showing unsafe and parameterized outcomes" width="100%"></a><br><strong>01 · SQL injection comparison</strong><br><sub>Run the same input through both SQL query paths.</sub></td>
+    <td width="50%"><a href="portfolio/assets/evidence/dashboard.jpg"><img src="portfolio/assets/evidence/dashboard.jpg" alt="SQLShield dashboard with comparison statistics" width="100%"></a><br><strong>02 · Security dashboard</strong><br><sub>Review recorded outcomes and summary metrics.</sub></td>
+  </tr>
+  <tr>
+    <td><a href="portfolio/assets/evidence/charts.jpg"><img src="portfolio/assets/evidence/charts.jpg" alt="SQLShield charts comparing vulnerable and protected results" width="100%"></a><br><strong>03 · Outcome charts</strong><br><sub>Visualize query matches and observed injection effects.</sub></td>
+    <td><a href="portfolio/assets/evidence/history.jpg"><img src="portfolio/assets/evidence/history.jpg" alt="SQLShield sanitized event history and CSV JSON export buttons" width="100%"></a><br><strong>04 · Test history and exports</strong><br><sub>Inspect timestamped, sanitized events and export options.</sub></td>
+  </tr>
+</table>
+
+### Automated testing evidence
+
+The repository's first GitHub Actions run completed successfully on **15 November 2026**: **25 tests passed** in **0.389 seconds**. Coverage includes authentication comparison, SQL injection handling, input validation, event storage, dashboard statistics, CSV/JSON exports, route behaviour and local-access restrictions.
+
+[![Visual summary of verified GitHub Actions tests: 25 passed](portfolio/assets/evidence/ci-test-results.svg)](https://github.com/TanjidIslamTanim/sqlshield-sqli-lab/actions/runs/43685679892)
+
+[View the original GitHub Actions run and test logs](https://github.com/TanjidIslamTanim/sqlshield-sqli-lab/actions/runs/43685679892) · [Review the test cases](tests/) · [Read the test plan](docs/test-plan.md)
+
+*The graphic is a visual summary of real CI logs, not a screenshot of GitHub's interface. A passing test suite supports the tested behaviours; it does not certify production security.*
 
 ## What it demonstrates
 
@@ -106,7 +133,7 @@ SQLShield/
 ## Scope and status
 
 - **Completed locally:** Flask comparison interface, two query implementations, fictional SQLite accounts, dashboard and the three documented Windows test cases.
-- **Available in source:** automated tests and CSV/JSON export endpoints. Full test-suite execution and export-content verification should be confirmed in the intended environment.
+- **Verified by GitHub Actions:** 25 automated tests passed, including checks for CSV/JSON export content and sanitized event storage ([workflow run](https://github.com/TanjidIslamTanim/sqlshield-sqli-lab/actions/runs/43685679892)).
 - **Still pending:** documented virtual-machine demonstration and confirmation that publishing the coursework is permitted.
 - **Not included:** real user authentication sessions, production password hashing, a public vulnerable server or production intrusion detection.
 
@@ -114,9 +141,9 @@ Demo secrets are fictional and stored in clear text to isolate the query behavio
 
 ## Author and project context
 
-**Developed and documented by [Tanjid Islam Tanim](https://github.com/TanjidIslamTanim)**, Software Engineering student (Computer Security specialization), UOW Malaysia.
+**Developed and documented by [Tanjid Islam Tanim](https://github.com/TanjidIslamTanim)**, Software Engineering student (Computer Security specialization), University of Wollongong Malaysia.
 
-Created for System Security coursework. AI-assisted scaffolding and writing support were used during development.
+Created for System Security coursework. The repository documents the implemented features, verified tests and known limitations.
 
 ## Publishing and reuse
 
