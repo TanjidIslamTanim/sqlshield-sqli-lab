@@ -6,6 +6,20 @@ Run from the project root:
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
+## Verified automated test run
+
+The GitHub Actions `Python tests` workflow completed successfully on **15 November 2026**:
+
+- **25 tests passed** in **0.389 seconds** using Python 3.13.
+- Coverage: 9 query and validation tests, 8 dashboard/export tests, 6 route/security tests and 2 event-storage tests.
+- The suite includes checks for sanitized CSV/JSON exports, local-access restrictions and the different outcomes of vulnerable versus parameterized queries.
+
+[Inspect the original workflow run and logs](https://github.com/TanjidIslamTanim/sqlshield-sqli-lab/actions/runs/43685679892)
+
+![Visual summary based on actual CI logs](../portfolio/assets/evidence/ci-test-results.svg)
+
+This is an automated test result, not proof of a full penetration test or VM demonstration. The visual is a rendered summary of the original logs, not a screenshot of GitHub's UI.
+
 ## Functional checks
 
 1. Valid demo credentials: both modes match; dashboard logs `both_authenticated`.
