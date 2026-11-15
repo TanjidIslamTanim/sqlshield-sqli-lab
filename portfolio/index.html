@@ -25,7 +25,7 @@
         <span>SQL<span class="accent">Shield</span><small>SECURITY LAB</small></span>
       </a>
       <nav aria-label="Main navigation" class="main-nav">
-        <a href="#overview">Overview</a><a href="#approach">Approach</a><a href="#results">Results</a><a href="#gallery">Screenshots</a>
+        <a href="#overview">Overview</a><a href="#approach">Approach</a><a href="#results">Results</a><a href="#testing">Testing</a><a href="#gallery">Screenshots</a>
       </nav>
       <a class="nav-github" href="https://github.com/TanjidIslamTanim/sqlshield-sqli-lab" target="_blank" rel="noopener noreferrer">GitHub repository <span aria-hidden="true">↗</span></a>
     </div>
@@ -61,11 +61,14 @@
     </section>
 
     <section class="section container" id="overview">
-      <div class="section-header"><div><div class="section-kicker">01 / PROJECT OVERVIEW</div><h2>One input. Two different outcomes.</h2></div><p>SQLShield was developed for System Security coursework at UOW Malaysia. It compares two SQL query implementations against fictional user records and records the outcomes in a local dashboard.</p></div>
+      <div class="section-header"><div><div class="section-kicker">01 / PROJECT OVERVIEW</div><h2>One input. Two different outcomes.</h2></div><p>SQLShield was developed for System Security coursework at University of Wollongong Malaysia. It compares two SQL query implementations against fictional user records and records the outcomes in a local dashboard.</p></div>
       <div class="feature-grid">
         <article class="feature-card"><div class="feature-number">01 <span class="feature-symbol coral">&lt;/&gt;</span></div><h3>Vulnerable query</h3><p>Directly interpolates untrusted input into SQL, illustrating how a query's conditions can be changed.</p><span class="feature-footer coral-text">INTENTIONALLY UNSAFE</span></article>
         <article class="feature-card"><div class="feature-number">02 <span class="feature-symbol mint">{ }</span></div><h3>Parameterized query</h3><p>Uses SQLite placeholders to separate submitted values from SQL instructions and preserve query structure.</p><span class="feature-footer mint-text">PRIMARY DEFENCE</span></article>
         <article class="feature-card"><div class="feature-number">03 <span class="feature-symbol blue">▤</span></div><h3>Evidence dashboard</h3><p>Summarizes recorded comparisons, outcomes and timestamps without intentionally storing raw inputs or demo secrets.</p><span class="feature-footer blue-text">LOCAL TEST EVIDENCE</span></article>
+        <article class="feature-card"><div class="feature-number">04 <span class="feature-symbol mint">✓</span></div><h3>Automated testing</h3><p>25 Python unit tests passed on GitHub Actions, covering query behaviour, request handling, storage, dashboard and access restrictions.</p><span class="feature-footer mint-text">VERIFIED IN CI</span></article>
+        <article class="feature-card"><div class="feature-number">05 <span class="feature-symbol blue">↓</span></div><h3>CSV / JSON exports</h3><p>Exports contain sanitized event details. Tests check that submitted usernames and secrets are not stored or exported.</p><span class="feature-footer blue-text">DATA MINIMIZATION</span></article>
+        <article class="feature-card"><div class="feature-number">06 <span class="feature-symbol coral">◉</span></div><h3>Local-only safeguards</h3><p>Loopback access controls, input checks and generic errors help keep the intentionally vulnerable demo isolated.</p><span class="feature-footer coral-text">NOT FOR PUBLIC DEPLOYMENT</span></article>
       </div>
     </section>
 
@@ -112,21 +115,41 @@ row = conn.execute(
       <div class="finding"><span class="finding-label">KEY FINDING</span><p>The injection example returned a fictional record through the unsafe query, while the parameterized query rejected the identical input.</p></div>
     </section>
 
+    <section class="section container" id="testing">
+      <div class="section-header"><div><div class="section-kicker">04 / AUTOMATED TESTING</div><h2>Tests that support the findings.</h2></div><p>GitHub Actions ran the project's Python unit tests on 15 November 2026. All 25 passed. The panel below is a visual summary based on the actual workflow logs, with a link to the original run.</p></div>
+      <div class="testing-grid">
+        <a class="ci-evidence" href="https://github.com/TanjidIslamTanim/sqlshield-sqli-lab/actions/runs/43685679892" target="_blank" rel="noopener noreferrer" aria-label="View the verified GitHub Actions run">
+          <img src="assets/evidence/ci-test-results.svg" alt="Verified GitHub Actions test summary: 25 of 25 tests passed across query validation, dashboard exports, route security and event storage" loading="lazy" width="1200" height="680">
+          <span>VIEW VERIFIED GITHUB ACTIONS RUN <span aria-hidden="true">↗</span></span>
+        </a>
+        <div class="test-breakdown">
+          <div class="panel-label">WHAT WAS TESTED</div>
+          <div class="test-row"><strong>09</strong><span>Query comparison, SQL injection and input validation</span></div>
+          <div class="test-row"><strong>08</strong><span>Dashboard, sanitized history and CSV/JSON exports</span></div>
+          <div class="test-row"><strong>06</strong><span>Routes, health checks and local-access safeguards</span></div>
+          <div class="test-row"><strong>02</strong><span>Event storage and outcome validation</span></div>
+          <p class="test-note">These are automated tests, not penetration-test certification. The deliberately vulnerable backend must remain local-only.</p>
+          <a class="test-source" href="https://github.com/TanjidIslamTanim/sqlshield-sqli-lab/tree/main/tests" target="_blank" rel="noopener noreferrer">Browse test source <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
     <section class="section container" id="gallery">
-      <div class="section-header"><div><div class="section-kicker">04 / ORIGINAL SYSTEM CAPTURES</div><h2>Evidence from the running application.</h2></div><p>These are actual screenshots of the SQLShield local lab and dashboard, not generated mockups.</p></div>
+      <div class="section-header"><div><div class="section-kicker">05 / APPLICATION EVIDENCE</div><h2>See the interface and test evidence.</h2></div><p>The four application images are original screenshots. The CI panel is a visual summary of real GitHub Actions logs, not an application screenshot.</p></div>
       <div class="gallery-grid">
         <figure class="gallery-card gallery-wide"><img src="assets/evidence/lab.jpg" alt="SQLShield local comparison page with SQL injection example" loading="lazy"><figcaption><strong>SQL injection comparison</strong><span>Unsafe matched / protected rejected</span></figcaption></figure>
         <figure class="gallery-card"><img src="assets/evidence/dashboard.jpg" alt="SQLShield dashboard displaying three recorded comparisons" loading="lazy"><figcaption><strong>Security insights dashboard</strong><span>Observed local metrics</span></figcaption></figure>
         <figure class="gallery-card"><img src="assets/evidence/charts.jpg" alt="SQLShield dashboard charts" loading="lazy"><figcaption><strong>Outcome visualizations</strong><span>Recorded comparison distribution</span></figcaption></figure>
         <figure class="gallery-card gallery-wide"><img src="assets/evidence/history.jpg" alt="SQLShield recorded test history" loading="lazy"><figcaption><strong>Test history</strong><span>Sanitized event records and timestamps</span></figcaption></figure>
+        <figure class="gallery-card gallery-wide"><a href="https://github.com/TanjidIslamTanim/sqlshield-sqli-lab/actions/runs/43685679892" target="_blank" rel="noopener noreferrer"><img src="assets/evidence/ci-test-results.svg" alt="Visual summary of 25 passing Python tests from the GitHub Actions workflow" loading="lazy"></a><figcaption><strong>Automated testing evidence</strong><span>25 tests passed · Original workflow linked</span></figcaption></figure>
       </div>
     </section>
 
     <section class="section container" id="about">
-      <div class="about-grid"><div><div class="section-kicker">05 / PROJECT CONTEXT</div><h2>Built to learn secure coding through practice.</h2><p>SQLShield was developed for System Security coursework at UOW Malaysia. The work combines backend development, controlled vulnerability testing, interface design and evidence documentation.</p><p class="about-note">Current scope: local educational lab. VM demonstration and CSV/JSON export-content verification are pending. This is not a production authentication system or intrusion-detection platform.</p></div><div class="author-card"><span class="author-overline">PROJECT SHOWCASE</span><h3>Tanjid Islam Tanim</h3><p>Software Engineering student · Computer Security specialization</p><div class="author-divider"></div><p class="team-note">Project development, security testing and portfolio documentation.</p><a href="https://github.com/TanjidIslamTanim" target="_blank" rel="noopener noreferrer">View GitHub profile <span aria-hidden="true">↗</span></a></div></div>
+      <div class="about-grid"><div><div class="section-kicker">06 / PROJECT CONTEXT</div><h2>Built to learn secure coding through practice.</h2><p>SQLShield was developed for System Security coursework at University of Wollongong Malaysia. The work combines backend development, controlled vulnerability testing, interface design and evidence documentation.</p><p class="about-note">Current scope: local educational lab. The GitHub Actions suite passed 25 tests, including CSV/JSON export checks. A documented VM demonstration is still pending. This is not a production authentication system or intrusion-detection platform.</p></div><div class="author-card"><span class="author-overline">PROJECT SHOWCASE</span><h3>Tanjid Islam Tanim</h3><p>Software Engineering student · Computer Security specialization</p><div class="author-divider"></div><p class="team-note">Project development, security testing and portfolio documentation.</p><a href="https://github.com/TanjidIslamTanim" target="_blank" rel="noopener noreferrer">View GitHub profile <span aria-hidden="true">↗</span></a></div></div>
     </section>
     <section class="cta-section container"><div><span class="section-kicker">SOURCE & DOCUMENTATION</span><h2>Explore the project on GitHub.</h2><p>Review the local Flask lab, test suite, architecture notes and security boundaries.</p></div><a class="btn btn-primary" href="https://github.com/TanjidIslamTanim/sqlshield-sqli-lab" target="_blank" rel="noopener noreferrer">Open repository <span aria-hidden="true">↗</span></a></section>
   </main>
-  <footer class="site-footer"><div class="container footer-inner"><span>© 2026 SQLShield · Tanjid Islam Tanim · UOW Malaysia coursework</span><span>Educational local lab · Static public portfolio · <a href="https://github.com/TanjidIslamTanim" target="_blank" rel="noopener noreferrer">@TanjidIslamTanim</a></span></div></footer>
+  <footer class="site-footer"><div class="container footer-inner"><span>© 2026 SQLShield · Tanjid Islam Tanim · University of Wollongong Malaysia coursework</span><span>Educational local lab · Static public portfolio · <a href="https://github.com/TanjidIslamTanim" target="_blank" rel="noopener noreferrer">@TanjidIslamTanim</a></span></div></footer>
 </body>
 </html>
