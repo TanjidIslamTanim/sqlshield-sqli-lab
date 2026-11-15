@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+<title id="title">SQLShield automated test evidence: 25 tests passed</title>
+<desc id="desc">Designed visual summary of the real GitHub Actions Python tests workflow, run 43685679892 on 15 November 2026. All 25 unit tests passed in 0.389 seconds. Includes test coverage groups and representative test names.</desc>
+<rect width="1200" height="680" rx="28" fill="#07141f"/>
+<rect x="25" y="25" width="1150" height="630" rx="22" fill="#0e2431" stroke="#294b56" stroke-width="2"/>
+<rect x="25" y="25" width="1150" height="66" rx="22" fill="#132e3c"/>
+<path d="M25 69h1150v22H25z" fill="#132e3c"/>
+<circle cx="62" cy="58" r="8" fill="#fa8c83"/><circle cx="87" cy="58" r="8" fill="#e6c26e"/><circle cx="112" cy="58" r="8" fill="#43d8ab"/>
+<text x="154" y="64" font-family="Arial, sans-serif" font-size="20" fill="#d6e7ed" font-weight="700">SQLShield / CI test evidence</text>
+<rect x="964" y="43" width="178" height="31" rx="15" fill="#16493d" stroke="#298b6b"/>
+<text x="1053" y="64" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#7af0c5" font-weight="700">✓ WORKFLOW PASSED</text>
+<text x="62" y="138" font-family="Arial,sans-serif" font-size="13" fill="#71a7b8" font-weight="700" letter-spacing="2">GITHUB ACTIONS / PYTHON 3.13 / RUN #1</text>
+<text x="60" y="207" font-family="Arial,sans-serif" font-size="52" fill="#f1fafb" font-weight="800">25 / 25 <tspan fill="#4de6b6">passed</tspan></text>
+<text x="63" y="242" font-family="Arial,sans-serif" font-size="17" fill="#a7c3cc">15 November 2026 · Completed in 0.389s · unittest</text>
+<rect x="60" y="274" width="1080" height="12" rx="6" fill="#21414b"/>
+<rect x="60" y="274" width="1080" height="12" rx="6" fill="#39e5b1"/>
+<g font-family="Arial,sans-serif">
+<text x="60" y="328" font-size="15" fill="#85a9b9" font-weight="700" letter-spacing="1">TEST COVERAGE</text>
+<rect x="60" y="347" width="253" height="102" rx="12" fill="#142f3d" stroke="#315465"/>
+<rect x="326" y="347" width="253" height="102" rx="12" fill="#142f3d" stroke="#315465"/>
+<rect x="592" y="347" width="253" height="102" rx="12" fill="#142f3d" stroke="#315465"/>
+<rect x="858" y="347" width="282" height="102" rx="12" fill="#142f3d" stroke="#315465"/>
+<text x="80" y="392" font-size="33" font-weight="800" fill="#dff8f1">09</text><text x="80" y="422" font-size="14" fill="#a9c8d1">Query + input validation</text>
+<text x="346" y="392" font-size="33" font-weight="800" fill="#dff8f1">08</text><text x="346" y="422" font-size="14" fill="#a9c8d1">Dashboard + exports</text>
+<text x="612" y="392" font-size="33" font-weight="800" fill="#dff8f1">06</text><text x="612" y="422" font-size="14" fill="#a9c8d1">Routes + security headers</text>
+<text x="878" y="392" font-size="33" font-weight="800" fill="#dff8f1">02</text><text x="878" y="422" font-size="14" fill="#a9c8d1">Event storage</text>
+<text x="60" y="488" font-size="15" fill="#85a9b9" font-weight="700" letter-spacing="1">SELECTED TESTS FROM THE WORKFLOW LOG</text>
+<text x="60" y="525" font-family="Consolas,monospace" font-size="15" fill="#c4d9e0">test_injection_bypasses_vulnerable_but_not_protected</text>
+<text x="1074" y="525" font-family="Consolas,monospace" font-size="15" fill="#4de6b6" text-anchor="end">ok</text>
+<text x="60" y="558" font-family="Consolas,monospace" font-size="15" fill="#c4d9e0">test_no_submitted_input_is_persisted_or_exported</text>
+<text x="1074" y="558" font-family="Consolas,monospace" font-size="15" fill="#4de6b6" text-anchor="end">ok</text>
+<text x="60" y="591" font-family="Consolas,monospace" font-size="15" fill="#c4d9e0">test_non_loopback_dashboard_and_export_blocked</text>
+<text x="1074" y="591" font-family="Consolas,monospace" font-size="15" fill="#4de6b6" text-anchor="end">ok</text>
+<text x="60" y="632" font-size="12" fill="#7498a9">Visual summary based on actual GitHub Actions logs · Run 43685679892 · Not a screenshot of the GitHub UI</text>
+</g></svg>
